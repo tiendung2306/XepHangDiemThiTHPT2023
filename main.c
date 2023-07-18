@@ -70,6 +70,11 @@ int main()
     while(!feof(f))
     {
         fgets(hs[SoLuongHS].sbd, 9, f); //sbd
+        if(strcmp(hs[SoLuongHS].sbd, "*") == 0)
+        {
+            SoLuongHS--;
+            break;
+        }
         for(int i = 0; i < 9; i++)
         {
             fgetc(f); //nhap dau ,
@@ -82,20 +87,22 @@ int main()
         {
             i++;
         }
+        
         hs[SoLuongHS].ma_ngoai_ngu[i] = '\0';
         // Xu ly SBD de ra duoc ma tinh
         hs[SoLuongHS].maTinh[0] = hs[SoLuongHS].sbd[0];
         hs[SoLuongHS].maTinh[1] = hs[SoLuongHS].sbd[1];
         SoLuongHS++;
     }
-    // for(int i = 971239; i < 971247; i++)
+
+    // for(int i = 956354; i < 956380; i++)
     // {
     //     printf("SBD: %s ", hs[i].sbd);
-    //     // for(int j = 0; j < 9; j++)
-    //     // {
-    //     //     printf("%.2lf ", hs[i].diem[j]);
-    //     // }
-    //     // printf("%s\n", hs[i].ma_ngoai_ngu);
+    //     for(int j = 0; j < 9; j++)
+    //     {
+    //         printf("%.2lf ", hs[i].diem[j]);
+    //     }
+    //     printf("%s\n", hs[i].ma_ngoai_ngu);
     //     printf("%s\n", map[to_Int(hs[i].maTinh)].tenTinh);
     // }
 }
