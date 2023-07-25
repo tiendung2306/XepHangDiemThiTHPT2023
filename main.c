@@ -56,7 +56,7 @@ struct HS
     double diem_toan, diem_van, diem_ngoai_ngu, diem_ly, diem_hoa, diem_sinh, diem_su, diem_dia, diem_gdcd;
     char ma_ngoai_ngu[10];
     char maTinh[3];
-} hs[1100006];
+} hs[1100006]; // các thí sinh được lưu từ hs[0] đến hs[SoLuongHs - 1]
 
 int main()
 {
@@ -65,14 +65,13 @@ int main()
     char line[2306];
     fgets(line, sizeof line, f);
     // printf("%s\n", line);
-    int SoLuongHS = 0;
+    int SoLuongHS = 0; // tổng số học sinh dự thi
     char sbd[10];
     while(!feof(f))
     {
         fgets(hs[SoLuongHS].sbd, 9, f); //sbd
         if(strcmp(hs[SoLuongHS].sbd, "*") == 0)
         {
-            SoLuongHS--;
             break;
         }
         for(int i = 0; i < 9; i++)
